@@ -1,0 +1,22 @@
+include ../../../node_modules/bemto.pug/bemto
+
++b.date-picker
+    +e.YEAR-PICKER.picker_item(
+        :start-value="startDate ? startDate.getFullYear() : null"
+        :end-value="endDate ? endDate.getFullYear() : null"
+        v-model="curYear"
+        :locked="!enabled"
+    )
+    +e.MONTH-PICKER.picker_item(
+        :start-value="null"
+        :end-value="null"
+        v-model="curMonth"
+        :locked="!enabled"
+    )
+    +e.DAY-PICKER.picker_item(
+        :now-date="value"
+        :cur-year="curYear.value"
+        :cur-month="curMonth.value"
+        :locked="!enabled"
+        @changed-day="changeDay"
+    )

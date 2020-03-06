@@ -1,0 +1,18 @@
+include ../../../../node_modules/bemto.pug/bemto.pug
+
++b.day-picker(:class="{'locked' : locked}")
+    // Подписи имён дней недели в первой строке
+    +e.SPAN.day-name(
+        v-for="name in nmDays"
+        :key="name"
+    ) {{ name }}
+    // Отображаемые дни
+    +e.SPAN.day-item(
+        v-for="item in listItems"
+        :key="item"
+        :class="{\
+            'out-day' : item.type === -1 || item.type === 1,\
+            'cur-day' : isToday(item),\
+          }"
+        @click="clickDay(item)"
+    ) {{ item.day }}

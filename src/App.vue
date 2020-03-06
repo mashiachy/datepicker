@@ -1,27 +1,30 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <date-picker
+      v-model="dt"
+      :start-date="new Date(2000, 0, 1)"
+      :end-date="new Date(2100, 11, 1)"
+    ></date-picker>
+    {{dt}}
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import datePicker from '@/components/DatePicker/DatePicker.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    datePicker,
+  },
+  data() {
+    return {
+      dt: new Date(),
+    };
   },
 };
 </script>
 
-<style lang="stylus">
-#app
-  font-family Avenir, Helvetica, Arial, sans-serif
-  -webkit-font-smoothing antialiased
-  -moz-osx-font-smoothing grayscale
-  text-align center
-  color #2c3e50
-  margin-top 60px
+<style scoped>
+
 </style>

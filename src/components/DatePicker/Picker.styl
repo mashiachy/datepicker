@@ -1,0 +1,56 @@
+base-size = 2em
+
+.picker
+  display block
+  position relative
+  height auto
+  width 7 * base-size
+  & > span
+    &:hover
+      background-color lightgray
+    &:active
+      background-color darkgrey
+    display block
+    height base-size
+    line-height base-size
+    text-align center
+    cursor pointer
+  &__current-value
+    cursor pointer
+    width 100%
+    background-color white
+  &__left-pick, &__right-pick
+    position absolute
+    top 0
+    width base-size
+  &__left-pick
+    left 0
+  &__right-pick
+    right 0
+  &__list-pick
+    position absolute
+    left 0
+    background-color white
+    text-align center
+    z-index 10
+    top base-size
+    width 100%
+    height auto
+    max-height 8 * base-size
+    overflow-y scroll
+  &__pick-item
+    &:hover
+      background-color lightgray
+    height base-size
+    line-height base-size
+    cursor pointer
+    border-top 1px solid #efefef
+  & .cur-item
+    background-color lightblue !important
+
+.locked-pick
+  &:hover, &:active
+    background-color white
+  cursor default
+  color darkgrey
+

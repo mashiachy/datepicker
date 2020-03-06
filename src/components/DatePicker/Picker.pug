@@ -1,0 +1,20 @@
+include ../../../node_modules/bemto.pug/bemto
+
++b.picker
+    // Текущее значение пикера
+    +e.SPAN.current-value(
+        :class="{'locked-pick' : locked}"
+        @click="clickCurValue"
+    ) {{ value.value | filterPickValue }}
+    // Выбор предыдущего значения пикера
+    +e.SPAN.left-pick(@click="clickLeftPick") &lt;
+    // Выбор следующего значения пикера
+    +e.SPAN.right-pick(@click="clickRightPick") &gt;
+    // Список значений для выбора
+    +e.list-pick(v-show="visibleList")
+        +e.pick-item(
+            v-for="item in listItems"
+            :key="item"
+            :class="{'cur-item' : item === value.value}"
+            @click="changeItem(item)"
+        ) {{ item | filterPickValue }}
